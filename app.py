@@ -4,6 +4,10 @@ from flask_cors import CORS  # Importa CORS
 app = Flask(__name__)
 CORS(app)  # Permite todas las solicitudes de origen cruzado
 
+@app.route('/')
+def home():
+    return "Bienvenido a mi servidor Flask!"  # Mensaje de bienvenida en la raíz
+
 @app.route('/log', methods=['POST'])
 def recibir_log():
     data = request.json
