@@ -10,6 +10,7 @@ def recibir_log():
     try:
         # Verificar si la solicitud tiene contenido JSON válido
         data = request.get_json()
+        print(f"✅ Datos recibidos en el servidor: {data}")  # Mostrar los datos completos recibidos
         if not data:
             return jsonify({"error": "Solicitud inválida, se esperaba JSON"}), 400
         
@@ -30,4 +31,3 @@ if __name__ == '__main__':
     port = int(os.environ.get("PORT", 10000))  # Permite definir el puerto en variable de entorno
     print(f"🚀 Servidor corriendo en http://0.0.0.0:{port}")  # Mensaje al iniciar
     app.run(host='0.0.0.0', port=port, debug=True)  # Habilita modo debug para mejor depuración
-
