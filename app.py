@@ -7,7 +7,7 @@ CORS(app)  # Habilita CORS para permitir solicitudes desde cualquier origen
 
 @app.route('/')
 def home():
-    return jsonify({"message": "Bienvenido a mi servidor Flask!"})  # Mensaje de bienvenida en JSON
+    return jsonify("Bienvenido a mi servidor Flask!")  # Mensaje de bienvenida en JSON
 
 @app.route('/log', methods=['POST'])
 def recibir_log():
@@ -31,6 +31,6 @@ def recibir_log():
         return jsonify({"error": "Error interno del servidor", "details": str(e)}), 500
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))  # Permite definir el puerto en variable de entorno
+    port = int(os.environ.get("PORT", 10000))  # Permite definir el puerto en variable de entorno
     print(f"🚀 Servidor corriendo en http://0.0.0.0:{port}")  # Mensaje al iniciar
     app.run(host='0.0.0.0', port=port, debug=True)  # Habilita modo debug para mejor depuración
