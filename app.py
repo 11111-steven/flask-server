@@ -14,6 +14,7 @@ def recibir_log():
     try:
         # Verificar si la solicitud tiene contenido JSON válido
         data = request.get_json()
+        print(f"✅ Datos recibidos: {data}")  # Mostrar los datos completos recibidos
         if not data:
             return jsonify({"error": "Solicitud inválida, se esperaba JSON"}), 400
         
